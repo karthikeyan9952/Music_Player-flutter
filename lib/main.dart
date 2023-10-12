@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/view/screens/home_screen.dart';
+import 'package:musicplayer/providers/theme_provider.dart';
+import 'package:musicplayer/utils/route/app_route.dart';
+import 'package:musicplayer/utils/theme/theme_constants.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,14 +16,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Music Player',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomeScreen(),
+    return Consumer<ThemeProvider>(
+      builder: (context, theme, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'Music Player',
+          themeMode: theme.themeMode,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          routerConfig: router,
+        );
+      },
     );
   }
 }

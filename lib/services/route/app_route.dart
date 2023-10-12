@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:musicplayer/utils/route/routes.dart';
+import 'package:musicplayer/services/route/routes.dart';
 import 'package:musicplayer/view/screens/home.dart';
 import 'package:musicplayer/view/screens/library.dart';
 import 'package:musicplayer/view/screens/main_screen.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:musicplayer/utils/message.dart';
-import 'package:musicplayer/utils/route/routes.dart';
+import 'package:musicplayer/services/route/routes.dart';
 import 'package:musicplayer/view/widgets/appbar_main.dart';
 import 'package:musicplayer/view/widgets/bottom_nav_bar.dart';
 

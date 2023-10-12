@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:musicplayer/providers/theme_provider.dart';
-import 'package:musicplayer/utils/route/app_route.dart';
-import 'package:musicplayer/utils/theme/theme_constants.dart';
+import 'package:musicplayer/services/route/app_route.dart';
+import 'package:musicplayer/services/theme/theme_constants.dart';
 import 'package:provider/provider.dart';
 
 void main() {

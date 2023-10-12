@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:musicplayer/utils/route/routes.dart';
-import 'package:musicplayer/utils/theme/pallete.dart';
+import 'package:musicplayer/services/route/routes.dart';
+import 'package:musicplayer/services/theme/pallete.dart';
 
 List<MyCustomBottomNavBarItem> navItems = [
   const MyCustomBottomNavBarItem(

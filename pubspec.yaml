@@ -40,6 +40,9 @@ dependencies:
   fluttertoast: ^8.2.2
   logger: ^2.0.2+1
   permission_handler: ^11.0.1
+  flutter_media_metadata: ^1.0.0+1
+  rxdart: ^0.27.7
+  audio_video_progress_bar: ^2.0.1
 
 dev_dependencies:
   flutter_test:

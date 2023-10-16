@@ -5,22 +5,28 @@ import 'package:musicplayer/services/theme/pallete.dart';
 
 List<MyCustomBottomNavBarItem> navItems = [
   const MyCustomBottomNavBarItem(
-    icon: Icon(CupertinoIcons.house),
-    activeIcon: Icon(CupertinoIcons.house_fill),
-    label: 'Home',
+    icon: Icon(CupertinoIcons.music_note_2),
+    activeIcon: Icon(CupertinoIcons.music_note_2),
+    label: 'Songs',
     initialLocation: Routes.home,
   ),
   const MyCustomBottomNavBarItem(
-    icon: Icon(CupertinoIcons.bookmark),
-    activeIcon: Icon(CupertinoIcons.bookmark_fill),
-    label: 'Library',
-    initialLocation: Routes.library,
+    icon: Icon(CupertinoIcons.music_albums),
+    activeIcon: Icon(CupertinoIcons.music_albums_fill),
+    label: 'Albums',
+    initialLocation: Routes.albums,
   ),
   const MyCustomBottomNavBarItem(
-    icon: Icon(CupertinoIcons.gear),
-    activeIcon: Icon(CupertinoIcons.gear_solid),
-    label: 'Settings',
-    initialLocation: Routes.settings,
+    icon: Icon(CupertinoIcons.person_2_square_stack),
+    activeIcon: Icon(CupertinoIcons.person_2_square_stack_fill),
+    label: 'Artists',
+    initialLocation: Routes.artists,
+  ),
+  const MyCustomBottomNavBarItem(
+    icon: Icon(CupertinoIcons.music_note_list),
+    activeIcon: Icon(CupertinoIcons.music_note_list),
+    label: 'Playlists',
+    initialLocation: Routes.playlists,
   ),
 ];
 

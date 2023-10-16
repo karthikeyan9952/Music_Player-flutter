@@ -1,24 +1,19 @@
-import 'dart:io';
-
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_media_metadata/flutter_media_metadata.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:musicplayer/common/widgets/size_unit.dart';
 import 'package:musicplayer/common/widgets/text.dart';
-import 'package:musicplayer/constants/global_objects.dart';
 import 'package:musicplayer/models/position_data.dart';
-import 'package:musicplayer/utils/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Player extends StatefulWidget {
+  const Player({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Player> createState() => _PlayerState();
 }
 
-class _HomeState extends State<Home> {
+class _PlayerState extends State<Player> {
   final player = AudioPlayer();
   Duration? duration;
   double position = 0;
@@ -40,25 +35,11 @@ class _HomeState extends State<Home> {
   }
 
   load() async {
-    await getStoragePermission();
-    Directory dir = Directory('/storage/emulated/0/download/');
-    String mp3Path = dir.toString();
-    logger.i(mp3Path);
-    List<FileSystemEntity> files;
-    List<FileSystemEntity> songs = [];
-    files = dir.listSync(recursive: true, followLinks: false);
-    for (FileSystemEntity entity in files) {
-      String path = entity.path;
-      if (path.endsWith('.mp3') || path.endsWith('.wav')) songs.add(entity);
-    }
-    logger.i(songs[0].path);
-    logger.i(songs.length);
-
-    duration = await player.setFilePath(songs[0].path);
-    final metadata = await MetadataRetriever.fromFile(File(songs[0].path));
-    logger.e(metadata.trackName);
-    player.play();
-    setState(() {});
+    // duration = await player.setFilePath(songs[0].path);
+    // final metadata = await MetadataRetriever.fromFile(File(songs[0].path));
+    // logger.e(metadata.trackName);
+    // player.play();
+    // setState(() {});
   }
 
   @override

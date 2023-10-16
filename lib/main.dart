@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/constants/global_objects.dart';
+import 'package:musicplayer/providers/providers.dart';
 import 'package:musicplayer/providers/theme_provider.dart';
 import 'package:musicplayer/services/route/app_route.dart';
 import 'package:musicplayer/services/theme/theme_constants.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
-  ], child: const MyApp()));
+  runApp(MultiProvider(providers: providers, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (context, theme, child) {
         return MaterialApp.router(
+          key: appKey,
           debugShowCheckedModeBanner: false,
           title: 'Music Player',
           themeMode: theme.themeMode,

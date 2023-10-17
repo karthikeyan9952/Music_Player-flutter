@@ -6,6 +6,7 @@ import 'package:musicplayer/view/screens/albums/album_detail.dart';
 import 'package:musicplayer/view/screens/albums/albums.dart';
 import 'package:musicplayer/view/screens/artists/artist_detail.dart';
 import 'package:musicplayer/view/screens/artists/artists.dart';
+import 'package:musicplayer/view/screens/player/player.dart';
 import 'package:musicplayer/view/screens/songs/songs.dart';
 import 'package:musicplayer/view/screens/playlists/playlists.dart';
 import 'package:musicplayer/view/screens/home_screen.dart';
@@ -62,6 +63,13 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         ArtistModel artist = state.extra as ArtistModel;
         return ArtistDetail(artist: artist);
+      },
+    ),
+    GoRoute(
+      path: Routes.player,
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (BuildContext context, GoRouterState state) {
+        return const Player();
       },
     ),
   ],

@@ -5,4 +5,5 @@ abstract class Routes {
   static const String artists = "/artists";
   static const String albumDetail = "/album-detail";
   static const String artistDetail = "/artist-detail";
+  static const String player = "/player";
 }

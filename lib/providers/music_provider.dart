@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/constants/global_objects.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class MusicProvider extends ChangeNotifier {
@@ -7,7 +6,6 @@ class MusicProvider extends ChangeNotifier {
   List<SongModel> get songs => _songs;
   set songs(List<SongModel> newSongs) {
     _songs = newSongs;
-    logger.i(songs);
     notifyListeners();
   }
 

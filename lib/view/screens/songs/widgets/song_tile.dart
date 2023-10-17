@@ -14,11 +14,12 @@ class _SongTileState extends State<SongTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {},
       contentPadding: const EdgeInsets.all(0),
       leading: QueryArtworkWidget(
           id: widget.song.id,
           type: ArtworkType.AUDIO,
-          artworkBorder: BorderRadius.zero),
+          artworkBorder: BorderRadius.circular(4)),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

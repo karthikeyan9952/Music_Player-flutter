@@ -36,7 +36,6 @@ class _PlayerState extends State<Player> {
 
   load() async {
     // duration = await player.setFilePath(songs[0].path);
-    // final metadata = await MetadataRetriever.fromFile(File(songs[0].path));
     // logger.e(metadata.trackName);
     // player.play();
     // setState(() {});

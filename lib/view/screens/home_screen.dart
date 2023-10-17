@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:musicplayer/constants/global_objects.dart';
 import 'package:musicplayer/repositories/music_repository.dart';
 import 'package:musicplayer/utils/message.dart';
 import 'package:musicplayer/services/route/routes.dart';
@@ -38,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
+        key: homeKey,
         appBar: AppBarMain(currentIndex: _selectedIndex),
         body: SafeArea(child: widget.child),
         bottomNavigationBar: BottomNavBar(

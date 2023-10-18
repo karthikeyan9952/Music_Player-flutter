@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
@@ -39,7 +41,51 @@ class PlayerProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void handlePausePlay() {
-    player.playing ? player.pause() : player.play();
+  ConcatenatingAudioSource? _playlist;
+  ConcatenatingAudioSource? get playlist => _playlist;
+  set playlist(ConcatenatingAudioSource? list) {
+    _playlist = list;
+    notifyListeners();
+  }
+
+  List<SongModel> _currentSongs = [];
+  List<SongModel> get currentSongs => _currentSongs;
+  set currentSongs(List<SongModel> songs) {
+    _currentSongs = songs;
+    notifyListeners();
+  }
+
+  void play({required List<SongModel> songs, required int index}) async {
+    currentSongs = songs;
+    song = songs[index];
+    List<File> songFiles = songs.map((song) => File(song.data)).toList();
+    final currentPlaylist = ConcatenatingAudioSource(
+        useLazyPreparation: true,
+        shuffleOrder: DefaultShuffleOrder(),
+        children: List.generate(songFiles.length,
+            (index) => AudioSource.file(songFiles[index].path)));
+
+    await player.setAudioSource(currentPlaylist,
+        initialIndex: index, initialPosition: Duration.zero);
+    player.play();
+    listener();
+  }
+
+  void handleNext() async {
+    await player.seekToNext();
+    if (player.currentIndex == null) return;
+    song = currentSongs[player.currentIndex!];
+  }
+
+  void handlePrevious() async {
+    await player.seekToPrevious();
+    if (player.currentIndex == null) return;
+    song = currentSongs[player.currentIndex!];
+  }
+
+  void listener() {
+    player.currentIndexStream.listen((newIndex) {
+      song = newIndex != null ? currentSongs[newIndex] : null;
+    });
   }
 }

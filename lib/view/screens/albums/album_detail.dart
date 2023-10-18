@@ -40,7 +40,11 @@ class AlbumDetail extends StatelessWidget {
                   .toList();
               return ListView.separated(
                   shrinkWrap: true,
-                  itemBuilder: (context, index) => SongTile(song: songs[index]),
+                  itemBuilder: (context, index) => SongTile(
+                        song: songs[index],
+                        index: index,
+                        songs: songs,
+                      ),
                   separatorBuilder: (context, index) => const SizedBox(
                         height: SizeUnit.md / 2,
                       ),

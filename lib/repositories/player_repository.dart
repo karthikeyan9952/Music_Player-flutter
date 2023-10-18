@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:musicplayer/providers/providers.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class PlayerRepository {
   final OnAudioQuery _audioQuery = OnAudioQuery();
@@ -12,5 +14,13 @@ class PlayerRepository {
       ArtworkType.AUDIO,
     );
     playerProvider.artworkBytes = bytes;
+  }
+
+  Future<PaletteGenerator?> getPaletteGenerator(Uint8List? imageBytes) async {
+    if (imageBytes == null) return null;
+    final paletteGenerator = await PaletteGenerator.fromImageProvider(
+      Image.memory(imageBytes).image,
+    );
+    return paletteGenerator;
   }
 }

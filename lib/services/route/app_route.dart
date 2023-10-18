@@ -68,9 +68,21 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: Routes.player,
       parentNavigatorKey: _rootNavigatorKey,
-      builder: (BuildContext context, GoRouterState state) {
-        return const Player();
-      },
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: const Player(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            SlideTransition(
+          position: animation.drive(
+            Tween(
+              begin: const Offset(0, 1.0),
+              end: Offset.zero,
+            ).chain(
+              CurveTween(curve: Curves.ease),
+            ),
+          ),
+          child: child,
+        ),
+      ),
     ),
   ],
   redirect: (context, state) async {

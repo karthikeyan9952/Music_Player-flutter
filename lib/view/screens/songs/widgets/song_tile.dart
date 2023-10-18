@@ -6,8 +6,14 @@ import 'package:musicplayer/services/route/routes.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class SongTile extends StatelessWidget {
-  const SongTile({super.key, required this.song});
+  const SongTile(
+      {super.key,
+      required this.song,
+      required this.index,
+      required this.songs});
   final SongModel song;
+  final int index;
+  final List<SongModel> songs;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +28,26 @@ class SongTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(song.title, maxLines: 1),
-          TextCustom(song.artist ?? ""),
+          TextCustom(song.artist ?? "", maxLines: 1),
         ],
       ),
-      trailing: InkWell(onTap: onMore, child: const Icon(Icons.more_vert)),
+      trailing: PopupMenuButton<String>(
+        onSelected: onMore,
+        itemBuilder: (BuildContext context) {
+          return {'Add to Playlist', 'Add to Favourites'}.map((String choice) {
+            return PopupMenuItem<String>(
+              value: choice,
+              child: Text(choice),
+            );
+          }).toList();
+        },
+      ),
     );
   }
 
-  void onMore() {}
+  void onMore(String value) {}
   void onTap(BuildContext context) {
-    playerProvider.song = song;
+    playerProvider.play(songs: songs, index: index);
     context.push(Routes.player);
   }
 }

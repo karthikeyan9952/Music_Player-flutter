@@ -12,7 +12,11 @@ class Songs extends StatelessWidget {
     return Consumer<MusicProvider>(builder: (context, music, child) {
       return ListView.separated(
         padding: const EdgeInsets.all(SizeUnit.lg),
-        itemBuilder: (context, index) => SongTile(song: music.songs[index]),
+        itemBuilder: (context, index) => SongTile(
+          song: music.songs[index],
+          index: index,
+          songs: music.songs,
+        ),
         separatorBuilder: (context, index) =>
             const SizedBox(height: SizeUnit.md / 2),
         shrinkWrap: true,

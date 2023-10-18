@@ -5,6 +5,7 @@ import 'package:musicplayer/repositories/music_repository.dart';
 import 'package:musicplayer/utils/message.dart';
 import 'package:musicplayer/services/route/routes.dart';
 import 'package:musicplayer/view/widgets/appbar_main.dart';
+import 'package:musicplayer/view/widgets/bottom_mini_player.dart';
 import 'package:musicplayer/view/widgets/bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,7 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         key: homeKey,
         appBar: AppBarMain(currentIndex: _selectedIndex),
-        body: SafeArea(child: widget.child),
+        body: SafeArea(
+            child: Stack(
+          children: [widget.child, const BottomMiniPlayer()],
+        )),
         bottomNavigationBar: BottomNavBar(
             selectedIndex: _selectedIndex,
             onTap: (index) => onChangeTab(index)),

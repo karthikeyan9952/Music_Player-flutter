@@ -1,16 +1,9 @@
-# musicplayer
+# Music Player
 
-A new Flutter project.
+A spotify like music player in flutter
 
-## Getting Started
+<img align="left" alt="App Demo" width="300px" src="https://github.com/karthikeyan9952/Music_Player-flutter/blob/main/screenshots/Screenshot_1697644069.png" />
+<img align="left" alt="App Demo" width="300px" src="https://github.com/karthikeyan9952/Music_Player-flutter/blob/main/screenshots/Screenshot_1697644076.png" />
+<img align="left" alt="App Demo" width="300px" src="https://github.com/karthikeyan9952/Music_Player-flutter/blob/main/screenshots/Screenshot_1697644082.png" />
+<img align="left" alt="App Demo" width="300px" src="https://github.com/karthikeyan9952/Music_Player-flutter/blob/main/screenshots/Screenshot_1697644085.png" />
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
